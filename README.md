@@ -36,8 +36,27 @@ In a standard tutorial project, beginners typically grant global administrator r
 5. **Edge Cache Invalidation:** The runner triggers an asynchronous invalidation across CloudFront edge servers to instantly pull fresh assets into the cache for users worldwide.
 
 ---
+---
 
-##  Infrastructure Cost Visibility & Guardrails
-To enforce fiscal compliance—a standard practice for production platform engineering teams—this pipeline incorporates:
-- **Resource Tagging Framework:** Multi-dimensional tracking tags (`Environment: Dev`, `Project: Static-Web-Pipeline`) attached directly to infrastructure assets for unified bill grouping.
-- **Cost Anomalies Alarms:** Active **AWS Budgets** monitors targeting a strict threshold limit, sending real-time operational notifications if early-stage cloud spending flags abnormal behavior.
+## 📷 Production Proof & Verification
+
+### 1. CI/CD Pipeline Automation Log
+This execution log demonstrates the automated handshake using temporary OIDC credentials, syncing target static assets, and firing the global invalidation command.
+
+![GitHub Actions Deployment Log](deploy-log.png)
+
+### 2. Network Isolation (CloudFront OAC)
+This console configuration verifies that the origin S3 store remains strictly private, with access delegated exclusively to the CloudFront distribution via cryptographically signed requests.
+
+![AWS CloudFront OAC Settings](cloudfront-oac.png)
+
+### 3. Financial Visibility & Guardrails
+This monitor verifies that proactive billing alarms are active on day one to mitigate risk against sudden cloud infrastructure cost anomalies.
+
+![AWS Budget Alarm Configuration](aws-budget.png)
+
+### 4. successfull web page
+webpage that showing that it is successfylly deployed.
+
+![AWS webpage pipeline successful](pipeline-deployment-webpage.png)
+
